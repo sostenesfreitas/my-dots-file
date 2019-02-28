@@ -78,7 +78,7 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-bindsym Ctrl+t exec --no-startup-id thunar
+bindsym shift+t exec --no-startup-id thunar
 bindsym $mod+c exec --no-startup-id code
 # focus_follows_mouse no
 
@@ -212,6 +212,7 @@ for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [class="thunar"] floating enable
+for_window [class="genymotion"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
@@ -220,8 +221,6 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="(?i)virtualbox"] fullscreen enable 
 for_window [class="Xfburn"] floating enable
 
 # switch to workspace with urgent window automatically
@@ -308,12 +307,13 @@ bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.conf
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
+exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config /home/dt/.config/compton/compton.conf
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config /home/miojo/.config/compton.conf
 exec --no-startup-id numlockx off
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
+
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
